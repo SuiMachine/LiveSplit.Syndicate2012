@@ -338,6 +338,7 @@
             // chk20
             // 
             this.chk20.AutoSize = true;
+            this.chk20.Enabled = false;
             this.chk20.Location = new System.Drawing.Point(206, 233);
             this.chk20.Name = "chk20";
             this.chk20.Size = new System.Drawing.Size(110, 17);
@@ -401,6 +402,7 @@
             this.chkAutoReset.AutoSize = true;
             this.chkAutoReset.Checked = true;
             this.chkAutoReset.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAutoReset.Enabled = false;
             this.chkAutoReset.Location = new System.Drawing.Point(3, 3);
             this.chkAutoReset.Name = "chkAutoReset";
             this.chkAutoReset.Size = new System.Drawing.Size(54, 17);

@@ -58,13 +58,13 @@ namespace LiveSplit.Syndicate
         {
             public const string C1_WakeUpCall = "S01_WAKEUPCALL";
             public const string C1_Tutorial1 = "S00_TUTORIAL1";
-            public const string C2_AssaultOnAspari = "S03_ExecSearch";
+            public const string C2_AssaultOnAspari = "S03_EXECSEARCH";
             public const string C2_Tutorial2 = "S00_TUTORIAL2";
             public const string C3_AspariExtraction = "S04_EXECSEARCH_A";
             public const string C4_A_train_to_catch = "S04_EXECSEARCH_B";
             public const string C5_Escape_from_Los_angeles = "S04_EXECSEARCH_C";
             public const string C6_Eurocorp = "S05_LILYDRAWL";
-            public const string C6_Tutorial3 = "S00_TUTORIAL2";
+            public const string C6_Tutorial3 = "S00_TUTORIAL3";
             public const string C7_Voyeur_Central = "S06_SURVEYLILY01";
             public const string C8_Cayman_Global = "S06_SURVEYLILY02";
             public const string C9_The_Floating_City = "S07_LABALLENA_INTRO";
@@ -175,7 +175,7 @@ namespace LiveSplit.Syndicate
                     {
                         string streamGroupId = String.Empty;
                         _levelNamePtr.Deref(game, out streamGroupId, 25);
-                        streamGroupId = streamGroupId.ToUpper();   
+                        streamGroupId = streamGroupId.ToUpperInvariant();   
 
 
                         bool isLoading;

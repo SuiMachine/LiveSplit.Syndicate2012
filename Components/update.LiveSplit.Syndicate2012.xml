@@ -1,4 +1,14 @@
 <updates>
+<update version="0.9.1">
+<files>
+<file path="Components/LiveSplit.Syndicate2012.dll" status="changed"/>
+</files>
+<changelog>
+<change>
+Fixed Aspari Assault and Tutorial 3.
+</change>
+</changelog>
+</update>
 <update version="0.9.0">
 <files>
 <file path="Components/LiveSplit.Syndicate2012.dll" status="changed"/>
