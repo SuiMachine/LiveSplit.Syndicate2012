@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveSplit.ComponentUtil;
 
 namespace LiveSplit.Syndicate
 {
@@ -174,7 +175,7 @@ namespace LiveSplit.Syndicate
                     while (!game.HasExited)
                     {
                         string streamGroupId = String.Empty;
-                        _levelNamePtr.Deref(game, out streamGroupId, 25);
+                        _levelNamePtr.DerefString(game, 25, out streamGroupId);
                         streamGroupId = streamGroupId.ToUpperInvariant();   
 
 
@@ -379,14 +380,6 @@ namespace LiveSplit.Syndicate
             {
                 return null;
             }
-
-            /*if (game.MainModule.ModuleMemorySize != (int)ExpectedDllSizes.FEARSteam)
-            {
-                _ignorePIDs.Add(game.Id);
-                _uiThread.Send(d => MessageBox.Show("Unexpected game version. DXHR 1.4.651.0 or DXHRDC 2.0.0.0 is required.", "LiveSplit.DXHR",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error), null);
-                return null;
-            }*/
 
             return game;
         }

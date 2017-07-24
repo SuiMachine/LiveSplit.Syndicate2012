@@ -1,12 +1,18 @@
 <updates>
+<update version="1.0.0">
+<files>
+<file path="Components/LiveSplit.Syndicate2012.dll" status="changed"/>
+</files>
+<changelog>
+<change>Updated to use LiveSplit.ComponentUtil methods.</change>
+</changelog>
+</update>
 <update version="0.9.1">
 <files>
 <file path="Components/LiveSplit.Syndicate2012.dll" status="changed"/>
 </files>
 <changelog>
-<change>
-Fixed Aspari Assault and Tutorial 3.
-</change>
+<change>Fixed Aspari Assault and Tutorial 3.</change>
 </changelog>
 </update>
 <update version="0.9.0">
@@ -14,9 +20,7 @@ Fixed Aspari Assault and Tutorial 3.
 <file path="Components/LiveSplit.Syndicate2012.dll" status="changed"/>
 </files>
 <changelog>
-<change>
-Initial release
-</change>
+<change>Initial release</change>
 </changelog>
 </update>
 </updates>
