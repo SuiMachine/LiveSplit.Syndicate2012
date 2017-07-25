@@ -1,4 +1,12 @@
 <updates>
+<update version="1.0.1">
+<files>
+<file path="Components/LiveSplit.Syndicate2012.dll" status="changed"/>
+</files>
+<changelog>
+<change>Updated Pointers, added condition to prevent converting null to uppercase.</change>
+</changelog>
+</update>
 <update version="1.0.0">
 <files>
 <file path="Components/LiveSplit.Syndicate2012.dll" status="changed"/>

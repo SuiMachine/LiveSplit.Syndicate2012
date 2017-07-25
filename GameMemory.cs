@@ -82,16 +82,6 @@ namespace LiveSplit.Syndicate
             public const string C20_Jack_Denham = "S16_DATACORE";            
         }
 
-        private enum Cutscenes
-        {
-
-        }
-
-        private enum ExpectedDllSizes
-        {
-            FEARSteam = 29642752,
-        }
-
         public bool[] splitStates { get; set; }
 
         public void resetSplitStates()
@@ -111,7 +101,7 @@ namespace LiveSplit.Syndicate
             resetSplitStates();
 
             _isLoadingPtr = new DeepPointer(0x16ABB48); // == 1 if a loadscreen is happening
-            _levelNamePtr = new DeepPointer("GameWorld_Win32_x86_Release.dll", 0x00506A48, 0x42c, 0x50, 0x2c, 0x198);
+            _levelNamePtr = new DeepPointer("GameClasses_Win32_x86_Release.dll", 0x00AB67A8, 0x40, 0x270, 0x198);
 
             _ignorePIDs = new List<int>();
         }
@@ -175,109 +165,115 @@ namespace LiveSplit.Syndicate
                     while (!game.HasExited)
                     {
                         string streamGroupId = String.Empty;
-                        _levelNamePtr.DerefString(game, 25, out streamGroupId);
-                        streamGroupId = streamGroupId.ToUpperInvariant();   
-
-
-                        bool isLoading;
-                        _isLoadingPtr.Deref(game, out isLoading);
-                        
-                        if (streamGroupId != prevStreamGroupId)
+                        _levelNamePtr.DerefString(game, ReadStringType.UTF8, 25, out streamGroupId);
+                        if(streamGroupId != null)
                         {
-                            if (prevStreamGroupId == LevelName.C1_WakeUpCall && streamGroupId == LevelName.C1_Tutorial1)
+                            streamGroupId = streamGroupId.ToUpper();
+                            if (streamGroupId != prevStreamGroupId)
                             {
-                                Split(SplitArea.SC1_WakeUpCall, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C1_Tutorial1 && streamGroupId == LevelName.C2_AssaultOnAspari)
-                            {
-                                Split(SplitArea.SC1_Tutorial1, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C2_AssaultOnAspari && streamGroupId == LevelName.C2_Tutorial2)
-                            {
-                                Split(SplitArea.SC2_AssaultOnAspari, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C2_Tutorial2 && streamGroupId == LevelName.C3_AspariExtraction)
-                            {
-                                Split(SplitArea.SC2_Tutorial2, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C3_AspariExtraction && streamGroupId == LevelName.C4_A_train_to_catch)
-                            {
-                                Split(SplitArea.SC3_AspariExtraction, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C4_A_train_to_catch && streamGroupId == LevelName.C5_Escape_from_Los_angeles)
-                            {
-                                Split(SplitArea.SC4_A_train_to_catch, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C5_Escape_from_Los_angeles && streamGroupId == LevelName.C6_Eurocorp)
-                            {
-                                Split(SplitArea.SC5_Escape_from_Los_angeles, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C6_Eurocorp && streamGroupId == LevelName.C6_Tutorial3)
-                            {
-                                Split(SplitArea.SC6_Eurocorp, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C6_Tutorial3 && streamGroupId == LevelName.C7_Voyeur_Central)
-                            {
-                                Split(SplitArea.SC6_Tutorial3, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C7_Voyeur_Central && streamGroupId == LevelName.C8_Cayman_Global)
-                            {
-                                Split(SplitArea.SC7_Voyeur_Central, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C8_Cayman_Global && streamGroupId == LevelName.C9_The_Floating_City)
-                            {
-                                Split(SplitArea.SC8_Cayman_Global, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C9_The_Floating_City && streamGroupId == LevelName.C10_Behind_the_scenes)
-                            {
-                                Split(SplitArea.SC9_The_Floating_City, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C10_Behind_the_scenes && streamGroupId == LevelName.C11_Ramon)
-                            {
-                                Split(SplitArea.SC10_Behind_the_scenes, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C11_Ramon && streamGroupId == LevelName.C12_Downzone)
-                            {
-                                Split(SplitArea.SC11_Ramon, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C12_Downzone && streamGroupId == LevelName.C13_Betrayed)
-                            {
-                                Split(SplitArea.SC12_Downzone, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C13_Betrayed && streamGroupId == LevelName.C14_The_wall)
-                            {
-                                Split(SplitArea.SC13_Betrayed, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C14_The_wall && streamGroupId == LevelName.C15_Kris)
-                            {
-                                Split(SplitArea.SC14_The_wall, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C15_Kris && streamGroupId == LevelName.C16_HumanResources)
-                            {
-                                Split(SplitArea.SC15_Kris, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C16_HumanResources && streamGroupId == LevelName.C17_CorporateWar)
-                            {
-                                Split(SplitArea.SC16_HumanResources, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C17_CorporateWar && streamGroupId == LevelName.C18_SpireAccess)
-                            {
-                                Split(SplitArea.SC17_CorporateWar, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C18_SpireAccess && streamGroupId == LevelName.C19_BurningTower)
-                            {
-                                Split(SplitArea.SC18_SpireAccess, frameCounter);
-                            }
-                            else if (prevStreamGroupId == LevelName.C19_BurningTower && streamGroupId == LevelName.C20_Jack_Denham)
-                            {
-                                Split(SplitArea.SC19_BurningTower, frameCounter);
-                            }/*
+                                //For safety... it may fail to split, but at least it won't kill load remover
+                                if (prevStreamGroupId == LevelName.C1_WakeUpCall && streamGroupId == LevelName.C1_Tutorial1)
+                                {
+                                    Split(SplitArea.SC1_WakeUpCall, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C1_Tutorial1 && streamGroupId == LevelName.C2_AssaultOnAspari)
+                                {
+                                    Split(SplitArea.SC1_Tutorial1, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C2_AssaultOnAspari && streamGroupId == LevelName.C2_Tutorial2)
+                                {
+                                    Split(SplitArea.SC2_AssaultOnAspari, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C2_Tutorial2 && streamGroupId == LevelName.C3_AspariExtraction)
+                                {
+                                    Split(SplitArea.SC2_Tutorial2, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C3_AspariExtraction && streamGroupId == LevelName.C4_A_train_to_catch)
+                                {
+                                    Split(SplitArea.SC3_AspariExtraction, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C4_A_train_to_catch && streamGroupId == LevelName.C5_Escape_from_Los_angeles)
+                                {
+                                    Split(SplitArea.SC4_A_train_to_catch, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C5_Escape_from_Los_angeles && streamGroupId == LevelName.C6_Eurocorp)
+                                {
+                                    Split(SplitArea.SC5_Escape_from_Los_angeles, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C6_Eurocorp && streamGroupId == LevelName.C6_Tutorial3)
+                                {
+                                    Split(SplitArea.SC6_Eurocorp, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C6_Tutorial3 && streamGroupId == LevelName.C7_Voyeur_Central)
+                                {
+                                    Split(SplitArea.SC6_Tutorial3, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C7_Voyeur_Central && streamGroupId == LevelName.C8_Cayman_Global)
+                                {
+                                    Split(SplitArea.SC7_Voyeur_Central, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C8_Cayman_Global && streamGroupId == LevelName.C9_The_Floating_City)
+                                {
+                                    Split(SplitArea.SC8_Cayman_Global, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C9_The_Floating_City && streamGroupId == LevelName.C10_Behind_the_scenes)
+                                {
+                                    Split(SplitArea.SC9_The_Floating_City, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C10_Behind_the_scenes && streamGroupId == LevelName.C11_Ramon)
+                                {
+                                    Split(SplitArea.SC10_Behind_the_scenes, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C11_Ramon && streamGroupId == LevelName.C12_Downzone)
+                                {
+                                    Split(SplitArea.SC11_Ramon, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C12_Downzone && streamGroupId == LevelName.C13_Betrayed)
+                                {
+                                    Split(SplitArea.SC12_Downzone, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C13_Betrayed && streamGroupId == LevelName.C14_The_wall)
+                                {
+                                    Split(SplitArea.SC13_Betrayed, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C14_The_wall && streamGroupId == LevelName.C15_Kris)
+                                {
+                                    Split(SplitArea.SC14_The_wall, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C15_Kris && streamGroupId == LevelName.C16_HumanResources)
+                                {
+                                    Split(SplitArea.SC15_Kris, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C16_HumanResources && streamGroupId == LevelName.C17_CorporateWar)
+                                {
+                                    Split(SplitArea.SC16_HumanResources, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C17_CorporateWar && streamGroupId == LevelName.C18_SpireAccess)
+                                {
+                                    Split(SplitArea.SC17_CorporateWar, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C18_SpireAccess && streamGroupId == LevelName.C19_BurningTower)
+                                {
+                                    Split(SplitArea.SC18_SpireAccess, frameCounter);
+                                }
+                                else if (prevStreamGroupId == LevelName.C19_BurningTower && streamGroupId == LevelName.C20_Jack_Denham)
+                                {
+                                    Split(SplitArea.SC19_BurningTower, frameCounter);
+                                }/*
                             else if (prevStreamGroupId == LevelName.C20_Jack_Denham)
                             {
                                 Split(SplitArea.SC20_Jack_Denham, frameCounter);
                             }*/
 
+                            }
                         }
+
+
+
+                        bool isLoading;
+                        _isLoadingPtr.Deref(game, out isLoading);
+                        
+                        
 
                         if (isLoading != prevIsLoading)
                         {
