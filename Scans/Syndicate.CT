@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="27">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"No description"</Description>
+      <LastState Value="0" RealAddress="01AABB48"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Syndicate.exe +16ABB48</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState RealAddress="0BB48BC4"/>
+      <VariableType>String</VariableType>
+      <Length>10</Length>
+      <Unicode>0</Unicode>
+      <CodePage>0</CodePage>
+      <ZeroTerminate>1</ZeroTerminate>
+      <Address>"GameWorld_Win32_x86_Release.dll"+00506A48</Address>
+      <Offsets>
+        <Offset>194</Offset>
+        <Offset>7C4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"No description"</Description>
+      <LastState Value="4261699971" RealAddress="0C1E7974"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0C1E7974</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState RealAddress="0BB48BC4"/>
+      <VariableType>String</VariableType>
+      <Length>10</Length>
+      <Unicode>0</Unicode>
+      <CodePage>0</CodePage>
+      <ZeroTerminate>1</ZeroTerminate>
+      <Address>"MCCDyn.dll"+000E8D68</Address>
+      <Offsets>
+        <Offset>160</Offset>
+        <Offset>20</Offset>
+        <Offset>10</Offset>
+        <Offset>20</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"pointerscan result"</Description>
+      <LastState RealAddress="0BB48BC8"/>
+      <VariableType>String</VariableType>
+      <Length>10</Length>
+      <Unicode>0</Unicode>
+      <CodePage>0</CodePage>
+      <ZeroTerminate>1</ZeroTerminate>
+      <Address>"GameClasses_Win32_x86_Release.dll"+00AB67A8</Address>
+      <Offsets>
+        <Offset>198</Offset>
+        <Offset>270</Offset>
+        <Offset>40</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"isLoadingScreenStatus1 (syndicate base)"</Description>
+      <LastState Value="0" RealAddress="0B96C768"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"Syndicate.exe"+018DB698</Address>
+      <Offsets>
+        <Offset>1288</Offset>
+        <Offset>24</Offset>
+        <Offset>58</Offset>
+        <Offset>4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"isLoadingScreenStatus2 (gameclasses base)"</Description>
+      <LastState Value="0" RealAddress="0B96C768"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"GameClasses_Win32_x86_Release.dll"+00A55288</Address>
+      <Offsets>
+        <Offset>1288</Offset>
+        <Offset>14</Offset>
+        <Offset>18</Offset>
+        <Offset>18</Offset>
+        <Offset>28</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"isLoadingScreenStatus3 (gameworld base)"</Description>
+      <LastState Value="0" RealAddress="0B96C768"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"GameWorld_Win32_x86_Release.dll"+004D81EC</Address>
+      <Offsets>
+        <Offset>1288</Offset>
+        <Offset>14</Offset>
+        <Offset>18</Offset>
+        <Offset>18</Offset>
+        <Offset>28</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

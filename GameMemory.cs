@@ -100,8 +100,8 @@ namespace LiveSplit.Syndicate
 
             resetSplitStates();
 
-            _isLoadingPtr = new DeepPointer(0x16ABB48); // == 1 if a loadscreen is happening
-            _levelNamePtr = new DeepPointer("GameClasses_Win32_x86_Release.dll", 0x00AB67A8, 0x40, 0x270, 0x198);
+            _isLoadingPtr = new DeepPointer("GameClasses_Win32_x86_Release.dll", 0x00A55288, 0x28, 0x18, 0x18, 0x14, 0x1288); // == 1 if a loadscreen is happening
+            _levelNamePtr = new DeepPointer("MCCDyn.dll", 0x000E8D68, 0x20, 0x10, 0x20, 0x164);
 
             _ignorePIDs = new List<int>();
         }
@@ -269,11 +269,9 @@ namespace LiveSplit.Syndicate
                         }
 
 
+                        _isLoadingPtr.Deref(game, out int TempIsLoading);
+                        bool isLoading = (TempIsLoading == 1);
 
-                        bool isLoading;
-                        _isLoadingPtr.Deref(game, out isLoading);
-                        
-                        
 
                         if (isLoading != prevIsLoading)
                         {
